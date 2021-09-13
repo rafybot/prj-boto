@@ -7,7 +7,7 @@ var commandList = requireFiles.ScanAll('./src/commands');
 require('dotenv').config();
 let fs = require(`fs`);
 
-const prefix = ".";
+const prefix = "-";
 
 
 module.exports = {
@@ -19,7 +19,6 @@ module.exports = {
         const command = args.shift().toLowerCase();
 
         if (command in global && typeof global[command] === "function") global[command](message, args)
-        else message.channel.send("[ :x: ] Comando inexistente!");
     }
 };
 
