@@ -13,7 +13,12 @@ const prefix = "-";
 module.exports = {
     response: function(message) {
         //console.log(commandList);
-        if (!message.content.startsWith(prefix)) return;
+        if (!message.content.startsWith(prefix)) {
+            if(message.content.toLowerCase().includes('zim'))
+                message.react('🧐');
+            else
+                return;
+        }
         const commandBody = message.content.slice(prefix.length);
         const args = commandBody.split(' ');
         const command = args.shift().toLowerCase();
@@ -94,3 +99,4 @@ global.oi = function oi(message, args) {
 
     message.channel.send(mensagens[Math.floor(Math.random() * 4)]);
 }
+
