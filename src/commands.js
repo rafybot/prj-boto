@@ -96,6 +96,7 @@ global.oi = function oi(message, args) {
         `oi ${message.author}.`,
         `vsf ${message.author}`
     ];
+    message.react('👍');
 
     message.channel.send(mensagens[Math.floor(Math.random() * 4)]);
 }
