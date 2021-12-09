@@ -10,6 +10,8 @@ module.exports = {
             `vsf ${message.author}`
         ];
 
+        message.react('👍');
+
         message.channel.send(mensagens[Math.floor(Math.random() * 4)]);
     }
 }

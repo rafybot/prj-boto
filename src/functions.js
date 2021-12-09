@@ -11,10 +11,11 @@ const parents = [
 ];
 
 module.exports = {
-    download: function (url, name){
-    request.get(url)
-        .on('error', console.error)
-        .pipe(fs.createWriteStream(process.env.IMAGES_PATH+name));
+    download: function (url, category, name){
+        if(!fs.existsSync(process.env.IMAGES_PATH+category)) fs.mkdirSync(process.env.IMAGES_PATH+category, { recursive: true });
+        request.get(url)
+            .on('error', console.error)
+            .pipe(fs.createWriteStream(process.env.IMAGES_PATH+category+'/'+name));
     },
 
     verifyParents: function(message){
